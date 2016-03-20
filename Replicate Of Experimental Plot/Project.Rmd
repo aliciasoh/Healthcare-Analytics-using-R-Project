@@ -1,0 +1,71 @@
+---
+title: "IS4250 Project"
+author: "Alicia, Kerine"
+date: "20 March 2016"
+output: md_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+library(ggplot2)
+library(dplyr)
+library(plyr)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+fig1b <- read.csv(file="figure1.b.csv")
+fig1b1 <- read.csv(file="figure1.b1.csv")
+fig1btry <- read.csv(file="figure1.btry.csv")
+
+g <- ggplot(fig1b, aes(X1, Y1))+geom_line()+labs(title ="Sensitive Strand Relative growth rate against Tetracycline conc (µg/ml)", x = "Tetracycline conc (µg/ml)", y = "Sensitive Strand Relative growth rate")+theme(panel.background = element_rect(fill = 'aliceblue'))
+g1 <- ggplot(fig1b1, aes(X1, Y1))+geom_line()+labs(title ="Resistant Strand Relative growth rate against Tetracycline conc (µg/ml)", x = "Tetracycline conc (µg/ml)", y = "Resistant Strand Relative growth rate")+theme(panel.background = element_rect(fill = 'aliceblue'))
+
+a <- ggplot(fig1btry, aes(X1))
+a <- a + geom_line(aes(y=Y1), colour="hotpink")+ geom_point(aes(y=Y1))
+a <- a + geom_line(aes(y=Y2), colour="aquamarine3")+ geom_point(aes(y=Y2))+labs(title ="Relative growth rate against Tetracycline conc (µg/ml)", x = "Tetracycline conc (µg/ml)", y = "Relative growth rate")+theme(panel.background = element_rect(fill = 'aliceblue'))
+```
+
+The graph below shows Relative exponential growth rates of susceptible strain of S.
+typhimurium as a function of tetracycline concentration. Cells were grown in Mueller Hinton medium at 37uC.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+plot(g)
+```
+
+The graph below shows Relative exponential growth rates of resistant strain of S.
+typhimurium as a function of tetracycline concentration. Cells were grown in Mueller Hinton medium at 37uC.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+plot(g1)
+```
+
+
+This is Figure 1B graph as seen in the paper. The graph below shows the above two graphs combined together. It shows the Relative exponential growth rates of susceptible (pink line) and resistant (green line) strains of S.
+typhimurium as a function of tetracycline concentration. Cells were grown in Mueller Hinton medium at 37uC.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+plot(a)
+
+```
+
+Graph from Figure 2B of the paper which shows the Selection coefficients streptomycin rpsL105(K42R) vs wild type. It intercepts the X axis at MSC = 1/4 MIC.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+fig2b <- read.csv(file="figure2.b.csv")
+
+d <- ggplot(fig2b, aes(X1, Y1))+geom_line()+labs(title ="Selection coefficient against Conc. streptomycin (µg/ml)", x = "Conc. streptomycin (µg/ml)", y = "Selection coefficient")+geom_point(aes(y=Y1))+theme(panel.background = element_rect(fill = 'aliceblue'))+geom_hline(yintercept = 0)
+
+plot(d)
+
+```
+
+Graph from Figure 2D of the paper which shows the Selection coefficients tetracycline cobA367::Tn10dtet vs wild type. It intercepts the X axis at MSC = 1/100 MIC.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+fig2d <- read.csv(file="figure2.d.csv")
+
+d <- ggplot(fig2d, aes(X1, Y1))+geom_line()+labs(title ="Selection coefficient against Conc. tetracycline (ng/ml)", x = "Conc. tetracycline (ng/ml)", y = "Selection coefficient")+geom_point(aes(y=Y1))+theme(panel.background = element_rect(fill = 'aliceblue'))+geom_hline(yintercept = 0)
+
+plot(d)
+
+```
+
