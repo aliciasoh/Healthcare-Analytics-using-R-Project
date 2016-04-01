@@ -29,6 +29,9 @@ typhimurium as a function of tetracycline concentration. Cells were grown in Mue
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 plot(g)
+
+print(fig1b)
+
 ```
 
 The graph below shows Relative exponential growth rates of resistant strain of S.
@@ -36,6 +39,8 @@ typhimurium as a function of tetracycline concentration. Cells were grown in Mue
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 plot(g1)
+
+print(fig1b1)
 ```
 
 
@@ -44,6 +49,8 @@ typhimurium as a function of tetracycline concentration. Cells were grown in Mue
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 plot(a)
+
+print(fig1btry)
 
 ```
 
@@ -56,6 +63,8 @@ d <- ggplot(fig2b, aes(X1, Y1))+geom_line()+labs(title ="Selection coefficient a
 
 plot(d)
 
+print(fig2b)
+
 ```
 
 Graph from Figure 2D of the paper which shows the Selection coefficients tetracycline cobA367::Tn10dtet vs wild type. It intercepts the X axis at MSC = 1/100 MIC.
@@ -66,6 +75,8 @@ fig2d <- read.csv(file="figure2.d.csv")
 d <- ggplot(fig2d, aes(X1, Y1))+geom_line()+labs(title ="Selection coefficient against Conc. tetracycline (ng/ml)", x = "Conc. tetracycline (ng/ml)", y = "Selection coefficient")+geom_point(aes(y=Y1))+theme(panel.background = element_rect(fill = 'aliceblue'))+geom_hline(yintercept = 0)
 
 plot(d)
+
+print(fig2d)
 
 ```
 
